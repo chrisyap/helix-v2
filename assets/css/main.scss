@@ -57,6 +57,10 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+.pointer {
+	cursor: pointer;
+}
+
 .container {
 	@media (max-width: 1299px) and (min-width: 1040px) {
 		width: 1040px;
@@ -178,6 +182,11 @@ header {
 	.title {
 		border-bottom: 1px solid rgba(white, .5);
 		padding: 8px 0;
+		.chart-trigger {
+			color: white;
+			padding: 10px 0 0;
+			display: inline-block;
+		}
 		.page-title {
 			// font-size: 1.8rem;
 			margin: 0;
@@ -201,6 +210,10 @@ header {
 		height: 200px;
 		background-color: $color-lighten;
 		z-index: -999;
+	}
+	.chart {
+		height: 450px;
+		border-bottom: 1px solid rgba(white, .5);
 	}
 }
 
