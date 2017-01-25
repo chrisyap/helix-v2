@@ -89,6 +89,24 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+.back2top {
+	position: fixed;
+	bottom: 0;
+	right: 20px;
+	> a {
+		display: block;
+		width: 50px;
+		height: 50px;
+		background-color: rgba(black,.3);
+		color: $color-gray;
+		font-size: 1.4rem;
+		text-align: center;
+		line-height: 50px;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+}
+
 .navbar {
 	&.navbar-default {
 		background-color: $color-primary;
@@ -99,7 +117,14 @@ h1, h2, h3, h4, h5, h6 {
 		}
 		.nav {
 			> li {
+				&.active {
+					> a {
+						background-color: transparent;
+						border-top-color: $text-color;
+					}
+				}
 				> a {
+					border-top: 3px solid transparent;
 					color: white;
 				}
 			}
@@ -236,6 +261,7 @@ header {
 		width: 236px;
 		margin: 0 10px 10px;
 		display: inline-block;
+    vertical-align:top;
 		text-align: left;
 		.title {
 			color: rgba(white,.8);
@@ -244,13 +270,16 @@ header {
 }
 .card {
 	&.panel {
-		// min-height: 300px;
+		margin-bottom: 5px;
 		box-shadow: none;
 		background-color: $color-gray-light;
 		.panel-heading {
 			padding-bottom: 0;
 			.age-sex {
 				color: rgba($text-color,.8);
+			}
+			p {
+				margin: 0;
 			}
 			* {
 				font-size: 1.2rem;
