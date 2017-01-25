@@ -63,12 +63,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .label {
 	@include font-roboto(300);
-	padding: .2em .5em;
+	padding: .25em .5em .2em;
 	&.label-info {
 		background-color: $color-lighten;
 	}
 	&.label-default {
-		background-color: rgba($color-gray,.8);
+		background-color: rgba($color-gray,.6);
 		// border: 1px solid rgba($text-color, .4);
 		color: $text-color;
 	}
@@ -89,10 +89,23 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+.create {
+	position: fixed;
+	bottom: 70px;
+	right: 40px;
+	> a {
+		display: block;
+		width: 50px;
+		height: 50px;
+		text-align: center;
+		font-size: 3rem;
+		color: $color-primary;
+	}
+}
 .back2top {
 	position: fixed;
 	bottom: 0;
-	right: 20px;
+	right: 40px;
 	> a {
 		display: block;
 		width: 50px;
@@ -281,9 +294,10 @@ header {
 			p {
 				margin: 0;
 			}
-			* {
+			.name {
 				font-size: 1.2rem;
 				line-height: 1;
+				@include font-roboto(400);
 				.lastname {
 					@include font-roboto(700);
 					display: block;
@@ -295,7 +309,7 @@ header {
 		}
 		.panel-body {
 			padding-top: 0;
-			padding-bottom: 8px;
+			padding-bottom: 5px;
 			> *:last-of-type {
 				margin-bottom: 0;
 			}
