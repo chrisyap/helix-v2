@@ -7,15 +7,15 @@
 //	"../node_modules/ionicons/dist/css/ionicons.css",
 	url('https://fonts.googleapis.com/css?family=Oswald:300,400,700|Roboto:300,400,500,700');
 
-$color-primary:		#89BDD3;
-$color-lighten:		#9AD3DE;
+$color-primary:			#89BDD3;
+$color-lighten:			#9AD3DE;
+$color-gray-light:	#E3E3E3;
+$color-gray:				#c9c9c9;
+$color-red:					#BB0219;
 
-$gray-light:		#E3E3E3;
-$gray:				#c9c9c9;
+$text-color:				#4a4a4a;
 
-$text-color:		#4a4a4a;
-
-$min-width:			769px;
+$min-width:					769px;
 
 @mixin font-oswald($weight) {
 	font-family: 'Oswald',sans-serif;
@@ -30,7 +30,7 @@ html {
 	font-size: 16px;
 }
 body {
-	background-color: $gray;
+	background-color: $color-gray;
 	color: $text-color;
 	font-size: 1rem;
 	@include font-roboto(300);
@@ -149,6 +149,19 @@ h1, h2, h3, h4, h5, h6 {
 				@include font-roboto(300);
 				i {
 					font-size: 1.8rem;
+					&.notify {
+						position: relative;
+						&:after {
+							content: '';
+							position: absolute;
+							right: -3px;
+							top: 3px;
+							width: 12px;
+							height: 12px;
+							border-radius: 50%;
+							background-color: $color-red;
+						}
+					}
 				}
 			}
 		}
@@ -208,7 +221,7 @@ header {
 	&.panel {
 		min-height: 300px;
 		box-shadow: none;
-		background-color: $gray-light;
+		background-color: $color-gray-light;
 		.panel-heading {
 			.name {
 				font-size: 1.2rem;
