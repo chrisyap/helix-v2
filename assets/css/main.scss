@@ -61,6 +61,19 @@ h1, h2, h3, h4, h5, h6 {
 	cursor: pointer;
 }
 
+.label {
+	@include font-roboto(300);
+	padding: .2em .5em;
+	&.label-info {
+		background-color: $color-lighten;
+	}
+	&.label-default {
+		background-color: rgba($color-gray,.8);
+		// border: 1px solid rgba($text-color, .4);
+		color: $text-color;
+	}
+}
+
 .container {
 	@media (max-width: 1299px) and (min-width: 1040px) {
 		width: 1040px;
@@ -174,7 +187,6 @@ h1, h2, h3, h4, h5, h6 {
 	min-width: $min-width;
 }
 
-
 header {
 	background-color: $color-lighten;
 	margin-bottom: 10px;
@@ -232,17 +244,31 @@ header {
 }
 .card {
 	&.panel {
-		min-height: 300px;
+		// min-height: 300px;
 		box-shadow: none;
 		background-color: $color-gray-light;
 		.panel-heading {
-			.name {
+			padding-bottom: 0;
+			.age-sex {
+				color: rgba($text-color,.8);
+			}
+			* {
 				font-size: 1.2rem;
 				line-height: 1;
 				.lastname {
 					@include font-roboto(700);
 					display: block;
 				}
+				.age {
+					font-size: 1rem;
+				}
+			}
+		}
+		.panel-body {
+			padding-top: 0;
+			padding-bottom: 8px;
+			> *:last-of-type {
+				margin-bottom: 0;
 			}
 		}
 	}
