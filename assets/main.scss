@@ -1,0 +1,223 @@
+---
+# Front matter
+---
+
+@import
+	"../node_modules/bootstrap-sass/assets/stylesheets/bootstrap",
+//	"../node_modules/ionicons/dist/css/ionicons.css",
+	url('https://fonts.googleapis.com/css?family=Oswald:300,400,700|Roboto:300,400,500,700');
+
+$color-primary:		#89BDD3;
+$color-lighten:		#9AD3DE;
+
+$gray-light:		#E3E3E3;
+$gray:				#c9c9c9;
+
+$text-color:		#4a4a4a;
+
+$min-width:			769px;
+
+@mixin font-oswald($weight) {
+	font-family: 'Oswald',sans-serif;
+	font-weight: $weight;
+}
+@mixin font-roboto($weight) {
+	font-family: 'Roboto',sans-serif;
+	font-weight: $weight;
+}
+
+html {
+	font-size: 16px;
+}
+body {
+	background-color: $gray;
+	color: $text-color;
+	font-size: 1rem;
+	@include font-roboto(300);
+	min-width: $min-width;
+	padding-top: 60px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	@include font-oswald(400);
+	text-transform: uppercase;
+}
+
+.btn {
+	@include font-oswald(300);
+	font-size: 1.05rem;
+	&.btn-default-reverse {
+		background-color: transparent;
+		border-color: rgba(white, .8);
+		color: white;
+		&:focus {
+			background-color: #fff;
+			color: $color-lighten;
+		}
+	}
+}
+
+.container {
+	@media (max-width: 1299px) and (min-width: 1040px) {
+		width: 1040px;
+	}
+	@media (max-width: 1559px) and (min-width: 1300px) {
+		width: 1300px;
+	}
+	@media (max-width: 1819px) and (min-width: 1560px) {
+		width: 1560px;
+	}
+	@media (max-width: 2079px) and (min-width: 1820px) {
+		width: 1820px;
+	}
+}
+
+.navbar {
+	&.navbar-default {
+		background-color: $color-primary;
+		color: white;
+		border-bottom: none;
+		.navbar-brand {
+			color: white;
+		}
+		.nav {
+			> li {
+				> a {
+					color: white;
+				}
+			}
+		}
+		.navbar-form {
+			input[type=search] {
+				background-color: rgba(0,0,0,.1);
+				box-shadow: none;
+				color: white;
+			}
+		}
+	}
+	.navbar-header {
+		.navbar-brand {
+			@include font-oswald(300);
+			font-size: .95rem;
+			line-height: 1.2;
+			padding: 11px 15px;
+			text-transform: uppercase;
+			float: none;
+			display: inline-block;
+		}
+		#helix-logo {
+			width: 30px;
+			height: 30px;
+			border-radius: 5px;
+			background-color: rgba(white,.3);
+			display: inline-block;
+		}
+	}
+	.navbar-form {
+		margin: 0;
+		padding: 10px 15px;
+		width: calc(100% - 320px);
+		.form-group {
+			display: block;
+			position: relative;
+			&:before {
+				content: '\f4a4';
+				font-family: "Ionicons";
+				position: absolute;
+				left: 20px;
+				top: 0;
+				line-height: 40px;
+				color: rgba(white,.5);
+			}
+			input[type=search] {
+				width: 100%;
+				border: none;
+				height: 40px;
+				border-radius: 20px;
+				padding: 10px 30px;
+			}
+		}
+	}
+	.nav {
+		&.navbar-right {
+			margin-right: -5px;
+		}
+		> li {
+			> a {
+				padding-left: 10px;
+				padding-right: 10px;
+				@include font-roboto(300);
+				i {
+					font-size: 1.8rem;
+				}
+			}
+		}
+	}
+	min-height: 60px;
+	min-width: $min-width;
+}
+
+
+header {
+	background-color: $color-lighten;
+	margin-bottom: 10px;
+	position: relative;
+	.title {
+		border-bottom: 1px solid rgba(white, .5);
+		padding: 8px 0;
+		.page-title {
+			// font-size: 1.8rem;
+			margin: 0;
+			color: white;
+			line-height: 38px;
+			@include font-oswald(300);
+			text-transform: uppercase;
+		}
+		.breadcrumb {
+			display: inline;
+			background-color: transparent;
+			padding: 0;
+			margin-left: 20px;
+		}
+	}
+	&:after {
+		content: '';
+		position: absolute;
+		top: 100%;
+		width: 100%;
+		height: 200px;
+		background-color: $color-lighten;
+		z-index: -999;
+	}
+}
+
+.cards {
+	// margin-top: -80px;
+	padding: 0;
+	.col-cards {
+		width: 236px;
+		margin: 0 10px 10px;
+		display: inline-block;
+		text-align: left;
+		.title {
+			color: rgba(white,.8);
+		}
+	}
+}
+.card {
+	&.panel {
+		min-height: 300px;
+		box-shadow: none;
+		background-color: $gray-light;
+		.panel-heading {
+			.name {
+				font-size: 1.2rem;
+				line-height: 1;
+				.lastname {
+					@include font-roboto(700);
+					display: block;
+				}
+			}
+		}
+	}
+}
