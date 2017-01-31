@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
-    "ionicons": "^3.0.0"
+    "highcharts": "^5.0.7",
+    "ionicons": "^3.0.0",
+    "odometer": "^0.4.7"
   }
 }

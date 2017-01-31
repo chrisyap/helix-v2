@@ -3,8 +3,7 @@
 ---
 
 @import
-	"../node_modules/bootstrap-sass/assets/stylesheets/bootstrap",
-//	"../node_modules/ionicons/dist/css/ionicons.css",
+	"bootstrap-sass/assets/stylesheets/bootstrap",
 	url('https://fonts.googleapis.com/css?family=Oswald:300,400,700|Roboto:300,400,500,700');
 
 $color-primary:			#89BDD3;
@@ -14,6 +13,7 @@ $color-gray:				#c9c9c9;
 $color-red:					#BB0219;
 
 $text-color:				#4a4a4a;
+$text-color-dark:		#191919;
 
 $min-width:					769px;
 
@@ -33,7 +33,7 @@ html {
 	font-size: 16px;
 }
 body {
-	background-color: $color-gray;
+	background-color: #555555;
 	color: $text-color;
 	font-size: 1rem;
 	@include font-roboto(300);
@@ -49,6 +49,15 @@ h1, h2, h3, h4, h5, h6 {
 .btn {
 	@include font-oswald(300);
 	font-size: 1.05rem;
+	&.btn-default {
+		background-color: transparent;
+		border-color: rgba($text-color-dark, .8);
+		color: $text-color-dark;
+		&:focus {
+			background-color: #fff;
+			color: $color-lighten;
+		}
+	}
 	&.btn-default-reverse {
 		background-color: transparent;
 		border-color: rgba(white, .8);
@@ -129,19 +138,19 @@ h1, h2, h3, h4, h5, h6 {
 		color: white;
 		border-bottom: none;
 		.navbar-brand {
-			color: white;
+			color: $text-color-dark;
 		}
 		.nav {
 			> li {
 				&.active {
 					> a {
 						background-color: transparent;
-						border-top-color: $text-color;
+						border-top-color: $text-color-dark;
 					}
 				}
 				> a {
 					border-top: 3px solid transparent;
-					color: white;
+					color: $text-color-dark;
 				}
 			}
 		}
@@ -232,18 +241,19 @@ header {
 	background-color: $color-lighten;
 	margin-bottom: 10px;
 	position: relative;
+	color: $text-color-dark;
 	.title {
-		border-bottom: 1px solid rgba(white, .5);
+		border-bottom: 1px solid rgba(#191919, .1);
 		padding: 8px 0;
 		.chart-trigger {
-			color: white;
+			color: $text-color-dark;
 			padding: 10px 0 0;
 			display: inline-block;
 		}
 		.page-title {
 			// font-size: 1.8rem;
 			margin: 0;
-			color: white;
+			// color: white;
 			line-height: 38px;
 			@include font-oswald(300);
 			text-transform: uppercase;
@@ -256,7 +266,7 @@ header {
 		}
 	}
 	&:after {
-		content: '';
+		// content: '';
 		position: absolute;
 		top: 100%;
 		width: 100%;
@@ -266,7 +276,38 @@ header {
 	}
 	.chart {
 		height: 450px;
-		border-bottom: 1px solid rgba(white, .5);
+		position: relative;
+		overflow: hidden;
+		#chart {
+			position: absolute;
+			top: 0;
+			left: -30px;
+			right: -30px;
+			bottom: 0;
+		}
+		.chart-data {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			.container {
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+				* {
+					margin: 0;
+					line-height: 1.2;
+				}
+				.mins {
+					font-size: 8rem;
+					font-weight: 300;
+				}
+				.result {
+					font-weight: 400;
+				}
+			}
+		}
 	}
 }
 

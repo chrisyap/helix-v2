@@ -22,7 +22,7 @@ title: Dashboard
 				</div>
 				<div class="col-xs-5 text-right">
 					<div class="dropdown">
-					  <button class="btn btn-default-reverse dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+					  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 					    All doctor
 					    <span class="caret"></span>
 					  </button>
@@ -46,7 +46,14 @@ title: Dashboard
 		</div>
 	</div>
 	<div class="chart">
-
+		<div id="chart"></div>
+		<div class="chart-data">
+			<div class="container">
+				<h3>Average patient <br>turnover time</h3>
+				<h1><span id="mins" class="mins">0</span><small>mins</small></h1>
+				<p>Improved by (1D)<br><span class="result">3 mins(2.32%)</span></p>
+			</div>
+		</div>
 	</div>
 </header>
 
@@ -234,6 +241,26 @@ title: Dashboard
 			<h5 class="title text-center">Completed</h5>
 
 			<div class="card panel completed">
+				<div class="panel-heading">
+					<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">45</span></p>
+					<p class="name">Emmanuel <span class="lastname">Patterson</span></p>
+				</div>
+				<div class="panel-body">
+					<p>
+						<span class="label label-info">New</span>
+						<span class="label label-default">Booked for 12pm</span>
+						<span class="label label-default">Standard</span>
+					</p>
+					<p>Dr Ann Allsop <span class="label label-default pull-right">5m</span></p>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="col-cards">
+			<h5 class="title text-center">Left</h5>
+
+			<div class="card panel">
 				<div class="panel-heading">
 					<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">45</span></p>
 					<p class="name">Emmanuel <span class="lastname">Patterson</span></p>
