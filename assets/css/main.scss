@@ -39,6 +39,14 @@ body {
 	@include font-roboto(300);
 	min-width: $min-width;
 	padding-top: 60px;
+	.wrapper {
+		@include transition;
+	}
+	&.sidenav-open {
+		.wrapper {
+			filter: blur(8px);
+		}
+	}
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -183,7 +191,7 @@ h1, h2, h3, h4, h5, h6 {
 	.navbar-form {
 		margin: 0;
 		padding: 10px 15px;
-		width: calc(100% - 320px);
+		width: calc(100% - 360px);
 		.form-group {
 			display: block;
 			position: relative;
@@ -237,6 +245,42 @@ h1, h2, h3, h4, h5, h6 {
 	min-width: $min-width;
 }
 
+aside {
+	&.sidenav {
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 300px;
+		bottom: 0;
+		background-color: $color-gray-light;
+		z-index: 9999;
+		box-shadow: -8px 0 0 rgba(black, .1);
+		transform: translateX(calc(100% + 65px));
+		@include transition;
+		&.open {
+			transform: translateX(0);
+		}
+		.button-close {
+			width: 60px;
+			height: 60px;
+			display: block;
+			background-color: #888;
+			position: absolute;
+			left: -60px;
+			text-align: center;
+			line-height: 60px;
+			color: #eee;
+			font-size: 2rem;
+			box-shadow: -4px 0 0 rgba(0,0,0,.1);
+			cursor: pointer;
+			@include transition;
+			&:hover {
+				background-color: $color-red;
+			}
+		}
+	}
+}
+
 header {
 	background-color: $color-lighten;
 	margin-bottom: 10px;
@@ -284,6 +328,10 @@ header {
 			left: -30px;
 			right: -30px;
 			bottom: 0;
+			> * {
+				top: 50%;
+				transform: translateY(-50%);
+			}
 		}
 		.chart-data {
 			position: absolute;
@@ -327,6 +375,22 @@ header {
 }
 .card {
 	position: relative;
+	&.left {
+		&:before {
+			content: '\f405';
+			font-family: 'Ionicons';
+			text-align: center;
+			font-size: 4rem;
+			line-height: 120px;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			color: $color-red;
+			background-color: rgba($color-gray-light, .9);
+		}
+	}
 	&.completed {
 		&:before {
 			content: '\f3fe';
