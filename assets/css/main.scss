@@ -11,6 +11,7 @@ $color-lighten:			#9AD3DE;
 $color-gray-light:	#E3E3E3;
 $color-gray:				#c9c9c9;
 $color-red:					#BB0219;
+$color-orange:			#E38D00;
 
 $text-color:				#4a4a4a;
 $text-color-dark:		#191919;
@@ -86,11 +87,16 @@ h1, h2, h3, h4, h5, h6 {
 	padding: .25em .5em .2em;
 	&.label-info {
 		background-color: $color-lighten;
+		color: $text-color;
 	}
 	&.label-default {
 		background-color: rgba($color-gray,.6);
 		// border: 1px solid rgba($text-color, .4);
 		color: $text-color;
+	}
+	&.label-warning {
+		background-color: $color-orange;
+		color: #fff;
 	}
 }
 
@@ -109,6 +115,15 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+.home {
+	.overflow-hidden {
+		overflow: scroll;
+		.cards {
+			// overflow: scroll;
+			width: 1820px;
+		}
+	}
+}
 .create {
 	position: fixed;
 	bottom: 70px;
@@ -429,7 +444,7 @@ header {
 			z-index: 100;
 			&:after {
 				z-index: 1;
-				border-color: rgba(black,.05);
+				border-color: rgba(black,.2);
 			}
 		}
 		.panel-heading {
