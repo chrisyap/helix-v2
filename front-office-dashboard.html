@@ -1,0 +1,297 @@
+---
+layout: home
+title: Dashboard
+---
+
+<div class="home">
+	<header>
+		<div class="title">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-5">
+						<h3 class="page-title">Today, 18 Jan
+							<ul class="breadcrumb">
+								<li class="active">Dashboard</li>
+							</ul>
+						</h3>
+					</div>
+					<div class="col-xs-2 text-center">
+						<a class="pointer chart-trigger">
+							<i class="icon ion-chevron-up"></i>
+							<i class="icon ion-chevron-down hidden"></i>
+						</a>
+					</div>
+					<div class="col-xs-5 text-right">
+						<div class="dropdown">
+						  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+						    All doctor
+						    <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+								<li><a href="">All doctors</a></li>
+								<li><a href="">Dr Ann Allsop</a></li>
+								<li><a href="">Dr Gilda Brunello</a></li>
+								<li><a href="">Dr Cassandra Canfield</a></li>
+								<li><a href="">Dr Stefanie Gooden</a></li>
+								<li><a href="">Dr Justine Johnston</a></li>
+								<li><a href="">Dr Nicola Moll</a></li>
+								<li><a href="">Dr John Procter</a></li>
+								<li><a href="">Dr Kathy Roy</a></li>
+								<li><a href="">Dr Emma Scott</a></li>
+								<li><a href="">Dr Jamie Sharkey</a></li>
+								<li><a href="">Dr Steve Thackway</a></li>
+						  </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="chart">
+			<div class="chart-data">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
+							<h3>Average patient <br>turnover time</h3>
+							<h1><span id="mins" class="mins">0</span><small>mins</small></h1>
+							<p>Improved by (1D)<br><span class="result">3 mins(2.32%)</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="chart"></div>
+			<div class="chart-range text-center">
+				<ul class="nav">
+					<li><a href="" class="btn btn-link-reverse active btn-sm">1D</a></li>
+					<li><a href="" class="btn btn-link-reverse btn-sm">1W</a></li>
+					<li><a href="" class="btn btn-link-reverse btn-sm">1M</a></li>
+					<li><a href="" class="btn btn-link-reverse btn-sm">6M</a></li>
+					<li><a href="" class="btn btn-link-reverse btn-sm">1Y</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+
+	<div class="overflow-hidden">
+		<div class="container text-center">
+			<div class="cards">
+				<div class="col-cards">
+					<h5 class="title text-center">Waiting for doctor</h5>
+
+					<div class="card panel">
+						<div class="panel-heading">
+							<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">45</span></p>
+							<p class="name">Emmanuel <span class="lastname">Patterson</span></p>
+						</div>
+						<div class="panel-body">
+							<p>
+								<span class="label label-info">New</span>
+								<span class="label label-default">Booked for 12pm</span>
+								<span class="label label-default">Standard</span>
+							</p>
+							<p>Dr Ann Allsop <span class="label label-default pull-right">5m</span></p>
+						</div>
+					</div>
+					<div class="card panel">
+						<div class="panel-heading">
+							<p class="text-center age-sex pull-right"><i class="icon ion-female"></i><br><span class="age">28</span></p>
+							<p class="name">Mathilda <span class="lastname">Garner</span></p>
+						</div>
+						<div class="panel-body">
+							<p>
+								<span class="label label-info">New</span>
+								<span class="label label-default">Walk-in</span>
+								<span class="label label-default">Pap smear</span>
+							</p>
+							<p>Dr Cassandra Canfield <span class="label label-warning pull-right">25m</span></p>
+						</div>
+					</div>
+					<div class="card panel">
+						<div class="panel-heading">
+							<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">39</span></p>
+							<p class="name">Andrew <span class="lastname">McDaniel</span></p>
+						</div>
+						<div class="panel-body">
+							<p>
+								<span class="label label-default">Booked for 12pm</span>
+								<span class="label label-default">Accupuncture</span>
+							</p>
+							<p>Dr John Procter <span class="label label-default pull-right">12m</span></p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-cards">
+					<h5 class="title text-center">In consultation</h5>
+
+					<div class="card panel">
+						<div class="panel-heading">
+							<p class="text-center age-sex pull-right"><i class="icon ion-female"></i><br><span class="age">42</span></p>
+							<p class="name">Lucile <span class="lastname">Robertson</span></p>
+						</div>
+						<div class="panel-body">
+							<p>
+								<span class="label label-info">New</span>
+								<span class="label label-default">Walk-in</span>
+								<span class="label label-default">Standard</span>
+							</p>
+							<p>Dr Cassandra Canfield <span class="label label-warning pull-right">22m</span></p>
+						</div>
+					</div>
+					<div class="card panel">
+						<div class="panel-heading">
+							<p class="text-center age-sex pull-right"><i class="icon ion-female"></i><br><span class="age">38</span></p>
+							<p class="name">Violet <span class="lastname">Hernandez</span></p>
+						</div>
+						<div class="panel-body">
+							<p>
+								<span class="label label-info">New</span>
+								<span class="label label-default">Booked for 11:30pm</span>
+								<span class="label label-default">Standard</span>
+							</p>
+							<p>Dr Kathy Roy <span class="label label-warning pull-right">25m</span></p>
+						</div>
+					</div>
+					<div class="card panel">
+						<div class="panel-heading">
+							<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">39</span></p>
+							<p class="name">Andrew <span class="lastname">McDaniel</span></p>
+						</div>
+						<div class="panel-body">
+							<p>
+								<span class="label label-default">Booked for 12pm</span>
+								<span class="label label-default">Accupuncture</span>
+							</p>
+							<p>Dr John Procter <span class="label label-default pull-right">12m</span></p>
+						</div>
+					</div>
+					<div class="card panel">
+						<div class="panel-heading">
+							<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">45</span></p>
+							<p class="name">Emmanuel <span class="lastname">Patterson</span></p>
+						</div>
+						<div class="panel-body">
+							<p>
+								<span class="label label-info">New</span>
+								<span class="label label-default">Booked for 12pm</span>
+								<span class="label label-default">Standard</span>
+							</p>
+							<p>Dr Ann Allsop <span class="label label-default pull-right">5m</span></p>
+						</div>
+					</div>
+					<div class="card panel">
+						<div class="panel-heading">
+							<p class="text-center age-sex pull-right"><i class="icon ion-female"></i><br><span class="age">28</span></p>
+							<p class="name">Mathilda <span class="lastname">Garner</span></p>
+						</div>
+						<div class="panel-body">
+							<p>
+								<span class="label label-info">New</span>
+								<span class="label label-default">Walk-in</span>
+								<span class="label label-default">Pap smear</span>
+							</p>
+							<p>Dr Cassandra Canfield <span class="label label-warning pull-right">25m</span></p>
+						</div>
+					</div>
+					<div class="card panel">
+						<div class="panel-heading">
+							<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">39</span></p>
+							<p class="name">Andrew <span class="lastname">McDaniel</span></p>
+						</div>
+						<div class="panel-body">
+							<p>
+								<span class="label label-default">Booked for 12pm</span>
+								<span class="label label-default">Accupuncture</span>
+							</p>
+							<p>Dr John Procter <span class="label label-default pull-right">12m</span></p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-cards">
+					<h5 class="title text-center">Nursing</h5>
+
+					<div class="card panel">
+						<div class="panel-heading">
+							<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">39</span></p>
+							<p class="name">Andrew <span class="lastname">McDaniel</span></p>
+						</div>
+						<div class="panel-body">
+							<p>
+								<span class="label label-default">Booked for 12pm</span>
+								<span class="label label-default">Accupuncture</span>
+							</p>
+							<p>Dr John Procter <span class="label label-default pull-right">12m</span></p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-cards">
+					<h5 class="title text-center">Others</h5>
+					<div class="card panel">
+						<div class="panel-heading">
+							<p class="name">Emmanuel <span class="lastname">Patterson</span></p>
+						</div>
+						<div class="panel-body">
+							Body
+						</div>
+					</div>
+				</div>
+
+				<div class="col-cards">
+					<h5 class="title text-center">Billing</h5>
+					<div class="card panel">
+						<div class="panel-heading">
+							<p class="name">Emmanuel <span class="lastname">Patterson</span></p>
+						</div>
+						<div class="panel-body">
+							Body
+						</div>
+					</div>
+				</div>
+
+				<div class="col-cards">
+					<h5 class="title text-center">Completed</h5>
+
+					<div class="card panel completed">
+						<div class="panel-heading">
+							<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">45</span></p>
+							<p class="name">Emmanuel <span class="lastname">Patterson</span></p>
+						</div>
+						<div class="panel-body">
+							<p>
+								<span class="label label-info">New</span>
+								<span class="label label-default">Booked for 12pm</span>
+								<span class="label label-default">Standard</span>
+							</p>
+							<p>Dr Ann Allsop <span class="label label-default pull-right">5m</span></p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-cards">
+					<h5 class="title text-center">Did not wait</h5>
+
+					<div class="card panel left">
+						<div class="panel-heading">
+							<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">45</span></p>
+							<p class="name">Emmanuel <span class="lastname">Patterson</span></p>
+						</div>
+						<div class="panel-body">
+							<p>
+								<span class="label label-info">New</span>
+								<span class="label label-default">Booked for 12pm</span>
+								<span class="label label-default">Standard</span>
+							</p>
+							<p>Dr Ann Allsop <span class="label label-default pull-right">5m</span></p>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

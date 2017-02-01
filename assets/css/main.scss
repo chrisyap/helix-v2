@@ -76,6 +76,21 @@ h1, h2, h3, h4, h5, h6 {
 			color: $color-lighten;
 		}
 	}
+	&.btn-link-reverse {
+		color: white;
+		border: none;
+		&.active, &:hover {
+			background-color: rgba(#fff,.2);
+			box-shadow: none;
+			border: none;
+		}
+	}
+	&.btn-sm, .btn-group-sm > .btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+	}
 }
 
 .pointer {
@@ -141,6 +156,7 @@ h1, h2, h3, h4, h5, h6 {
 	position: fixed;
 	bottom: 0;
 	right: 40px;
+	display: none;
 	> a {
 		display: block;
 		width: 50px;
@@ -359,7 +375,8 @@ header {
 				top: 50%;
 				transform: translateY(-50%);
 				* {
-					margin: 0;
+					margin-top: 0;
+					margin-bottom: 0;
 					line-height: 1.2;
 				}
 				.mins {
@@ -368,6 +385,17 @@ header {
 				}
 				.result {
 					font-weight: 400;
+				}
+			}
+		}
+		.chart-range {
+			position: absolute;
+			bottom: 30px;
+			width: 100%;
+			.nav {
+				list-style: none;
+				> li {
+					display: inline-block;
 				}
 			}
 		}

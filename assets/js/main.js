@@ -8,6 +8,14 @@ setTimeout(function(){
   $('#mins').animateNumber({ number: 68 });
 },1000);
 
+$(window).scroll(function() {
+    if ($(this).scrollTop() > 300) {
+        $('.back2top').fadeIn();
+    } else {
+        $('.back2top').fadeOut();
+    }
+});
+
 $('.wrapper').on('click', function(){
   $('aside.sidenav').removeClass('open');
   $('body').removeClass('sidenav-open');
