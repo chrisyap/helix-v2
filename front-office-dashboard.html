@@ -9,7 +9,8 @@ title: Dashboard
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-xs-5">
-						<h3 class="page-title">Today, 18 Jan
+						<h3 class="page-title">
+							<span class="clock"></span>
 							<ul class="breadcrumb">
 								<li class="active">Dashboard</li>
 							</ul>
@@ -77,218 +78,273 @@ title: Dashboard
 				<div class="col-cards">
 					<h5 class="title text-center">Waiting for doctor</h5>
 
-					<div class="card panel">
-						<div class="panel-heading">
-							<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">45</span></p>
-							<p class="name">Emmanuel <span class="lastname">Patterson</span></p>
-						</div>
-						<div class="panel-body">
-							<p>
-								<span class="label label-info">New</span>
-								<span class="label label-default">Booked for 12pm</span>
-								<span class="label label-default">Standard</span>
-							</p>
-							<p>Dr Ann Allsop <span class="label label-default pull-right">5m</span></p>
-						</div>
-					</div>
-					<div class="card panel">
-						<div class="panel-heading">
-							<p class="text-center age-sex pull-right"><i class="icon ion-female"></i><br><span class="age">28</span></p>
-							<p class="name">Mathilda <span class="lastname">Garner</span></p>
-						</div>
-						<div class="panel-body">
-							<p>
-								<span class="label label-info">New</span>
-								<span class="label label-default">Walk-in</span>
-								<span class="label label-default">Pap smear</span>
-							</p>
-							<p>Dr Cassandra Canfield <span class="label label-warning pull-right">25m</span></p>
-						</div>
-					</div>
-					<div class="card panel">
-						<div class="panel-heading">
-							<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">39</span></p>
-							<p class="name">Andrew <span class="lastname">McDaniel</span></p>
-						</div>
-						<div class="panel-body">
-							<p>
-								<span class="label label-default">Booked for 12pm</span>
-								<span class="label label-default">Accupuncture</span>
-							</p>
-							<p>Dr John Procter <span class="label label-default pull-right">12m</span></p>
-						</div>
-					</div>
+					{% assign pages = site.pages | sort: 'weight' reversed %}
+					{% for p in pages %}
+						{% if p.status == 'waiting' %}
+
+						<a href="{{ p.url }}" class="card panel">
+							<div class="panel-heading">
+								<p class="text-center age-sex pull-right">
+									{% if p.gender == 'Male' %}
+										<i class="icon ion-male"></i>
+									{% else %}
+										<i class="icon ion-female"></i>
+									{% endif %}
+									<br><span class="age">{{ p.age }}</span></p>
+								<p class="name">{{ p.firstName }} <span class="lastname">{{ p.lastName }}</span></p>
+							</div>
+							<div class="panel-body">
+								<p>
+									{% if p.new == 'New' %}
+										<span class="label label-info">New</span>
+									{% endif %}
+									{% if p.booked == 'Walk-in' %}
+										<span class="label label-default">{{ p.booked }}</span>
+									{% else %}
+										<span class="label label-default">{{ p.hr }}{% if p.min != 0 %}:{{ p.min }} {% endif %}{{ p.day }} {{ p.booked }}</span>
+									{% endif %}
+									<span class="label label-default">{{ p.type }}</span>
+								</p>
+								<p>{{ p.doctor }} <span class="label {% if p.duration > 30 %} label-warning {% else %} label-default {% endif %} pull-right">{{ p.duration }}m</span></p>
+							</div>
+						</a>
+
+						{% endif %}
+					{% endfor %}
 
 				</div>
 
 				<div class="col-cards">
 					<h5 class="title text-center">In consultation</h5>
 
-					<div class="card panel">
-						<div class="panel-heading">
-							<p class="text-center age-sex pull-right"><i class="icon ion-female"></i><br><span class="age">42</span></p>
-							<p class="name">Lucile <span class="lastname">Robertson</span></p>
-						</div>
-						<div class="panel-body">
-							<p>
-								<span class="label label-info">New</span>
-								<span class="label label-default">Walk-in</span>
-								<span class="label label-default">Standard</span>
-							</p>
-							<p>Dr Cassandra Canfield <span class="label label-warning pull-right">22m</span></p>
-						</div>
-					</div>
-					<div class="card panel">
-						<div class="panel-heading">
-							<p class="text-center age-sex pull-right"><i class="icon ion-female"></i><br><span class="age">38</span></p>
-							<p class="name">Violet <span class="lastname">Hernandez</span></p>
-						</div>
-						<div class="panel-body">
-							<p>
-								<span class="label label-info">New</span>
-								<span class="label label-default">Booked for 11:30pm</span>
-								<span class="label label-default">Standard</span>
-							</p>
-							<p>Dr Kathy Roy <span class="label label-warning pull-right">25m</span></p>
-						</div>
-					</div>
-					<div class="card panel">
-						<div class="panel-heading">
-							<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">39</span></p>
-							<p class="name">Andrew <span class="lastname">McDaniel</span></p>
-						</div>
-						<div class="panel-body">
-							<p>
-								<span class="label label-default">Booked for 12pm</span>
-								<span class="label label-default">Accupuncture</span>
-							</p>
-							<p>Dr John Procter <span class="label label-default pull-right">12m</span></p>
-						</div>
-					</div>
-					<div class="card panel">
-						<div class="panel-heading">
-							<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">45</span></p>
-							<p class="name">Emmanuel <span class="lastname">Patterson</span></p>
-						</div>
-						<div class="panel-body">
-							<p>
-								<span class="label label-info">New</span>
-								<span class="label label-default">Booked for 12pm</span>
-								<span class="label label-default">Standard</span>
-							</p>
-							<p>Dr Ann Allsop <span class="label label-default pull-right">5m</span></p>
-						</div>
-					</div>
-					<div class="card panel">
-						<div class="panel-heading">
-							<p class="text-center age-sex pull-right"><i class="icon ion-female"></i><br><span class="age">28</span></p>
-							<p class="name">Mathilda <span class="lastname">Garner</span></p>
-						</div>
-						<div class="panel-body">
-							<p>
-								<span class="label label-info">New</span>
-								<span class="label label-default">Walk-in</span>
-								<span class="label label-default">Pap smear</span>
-							</p>
-							<p>Dr Cassandra Canfield <span class="label label-warning pull-right">25m</span></p>
-						</div>
-					</div>
-					<div class="card panel">
-						<div class="panel-heading">
-							<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">39</span></p>
-							<p class="name">Andrew <span class="lastname">McDaniel</span></p>
-						</div>
-						<div class="panel-body">
-							<p>
-								<span class="label label-default">Booked for 12pm</span>
-								<span class="label label-default">Accupuncture</span>
-							</p>
-							<p>Dr John Procter <span class="label label-default pull-right">12m</span></p>
-						</div>
-					</div>
+					{% assign pages = site.pages | sort: 'weight' reversed %}
+					{% for p in pages %}
+						{% if p.status == 'consult' %}
+
+						<a href="{{ p.url }}" class="card panel">
+							<div class="panel-heading">
+								<p class="text-center age-sex pull-right">
+									{% if p.gender == 'Male' %}
+										<i class="icon ion-male"></i>
+									{% else %}
+										<i class="icon ion-female"></i>
+									{% endif %}
+									<br><span class="age">{{ p.age }}</span></p>
+								<p class="name">{{ p.firstName }} <span class="lastname">{{ p.lastName }}</span></p>
+							</div>
+							<div class="panel-body">
+								<p>
+									{% if p.new == 'New' %}
+										<span class="label label-info">New</span>
+									{% endif %}
+									{% if p.booked == 'Walk-in' %}
+										<span class="label label-default">{{ p.booked }}</span>
+									{% else %}
+										<span class="label label-default">{{ p.hr }}{% if p.min != 0 %}:{{ p.min }} {% endif %}{{ p.day }} {{ p.booked }}</span>
+									{% endif %}
+									<span class="label label-default">{{ p.type }}</span>
+								</p>
+								<p>{{ p.doctor }} <span class="label {% if p.duration > 30 %} label-warning {% else %} label-default {% endif %} pull-right">{{ p.duration }}m</span></p>
+							</div>
+						</a>
+
+						{% endif %}
+					{% endfor %}
 
 				</div>
 
 				<div class="col-cards">
 					<h5 class="title text-center">Nursing</h5>
 
-					<div class="card panel">
-						<div class="panel-heading">
-							<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">39</span></p>
-							<p class="name">Andrew <span class="lastname">McDaniel</span></p>
-						</div>
-						<div class="panel-body">
-							<p>
-								<span class="label label-default">Booked for 12pm</span>
-								<span class="label label-default">Accupuncture</span>
-							</p>
-							<p>Dr John Procter <span class="label label-default pull-right">12m</span></p>
-						</div>
-					</div>
+					{% assign pages = site.pages | sort: 'weight' reversed %}
+					{% for p in pages %}
+						{% if p.status == 'nursing' %}
+
+						<a href="{{ p.url }}" class="card panel">
+							<div class="panel-heading">
+								<p class="text-center age-sex pull-right">
+									{% if p.gender == 'Male' %}
+										<i class="icon ion-male"></i>
+									{% else %}
+										<i class="icon ion-female"></i>
+									{% endif %}
+									<br><span class="age">{{ p.age }}</span></p>
+								<p class="name">{{ p.firstName }} <span class="lastname">{{ p.lastName }}</span></p>
+							</div>
+							<div class="panel-body">
+								<p>
+									{% if p.new == 'New' %}
+										<span class="label label-info">New</span>
+									{% endif %}
+									{% if p.booked == 'Walk-in' %}
+										<span class="label label-default">{{ p.booked }}</span>
+								  {% else %}
+										<span class="label label-default">{{ p.hr }}{% if p.min != 0 %}:{{ p.min }} {% endif %}{{ p.day }} {{ p.booked }}</span>
+									{% endif %}
+									<span class="label label-default">{{ p.type }}</span>
+								</p>
+								<p>{{ p.doctor }} <span class="label {% if p.duration > 30 %} label-warning {% else %} label-default {% endif %} pull-right">{{ p.duration }}m</span></p>
+							</div>
+						</a>
+
+						{% endif %}
+					{% endfor %}
 
 				</div>
 
 				<div class="col-cards">
 					<h5 class="title text-center">Others</h5>
-					<div class="card panel">
-						<div class="panel-heading">
-							<p class="name">Emmanuel <span class="lastname">Patterson</span></p>
-						</div>
-						<div class="panel-body">
-							Body
-						</div>
-					</div>
+
+					{% assign pages = site.pages | sort: 'weight' reversed %}
+					{% for p in pages %}
+						{% if p.status == 'others' %}
+
+						<a href="{{ p.url }}" class="card panel">
+							<div class="panel-heading">
+								<p class="text-center age-sex pull-right">
+									{% if p.gender == 'Male' %}
+										<i class="icon ion-male"></i>
+									{% else %}
+										<i class="icon ion-female"></i>
+									{% endif %}
+									<br><span class="age">{{ p.age }}</span></p>
+								<p class="name">{{ p.firstName }} <span class="lastname">{{ p.lastName }}</span></p>
+							</div>
+							<div class="panel-body">
+								<p>
+									{% if p.new == 'New' %}
+										<span class="label label-info">New</span>
+									{% endif %}
+									{% if p.booked == 'Walk-in' %}
+										<span class="label label-default">{{ p.booked }}</span>
+									{% else %}
+										<span class="label label-default">{{ p.hr }}{% if p.min != 0 %}:{{ p.min }} {% endif %}{{ p.day }} {{ p.booked }}</span>
+									{% endif %}
+									<span class="label label-default">{{ p.type }}</span>
+								</p>
+								<p>{{ p.doctor }} <span class="label {% if p.duration > 30 %} label-warning {% else %} label-default {% endif %} pull-right">{{ p.duration }}m</span></p>
+							</div>
+						</a>
+
+						{% endif %}
+					{% endfor %}
+
 				</div>
 
 				<div class="col-cards">
 					<h5 class="title text-center">Billing</h5>
-					<div class="card panel">
-						<div class="panel-heading">
-							<p class="name">Emmanuel <span class="lastname">Patterson</span></p>
-						</div>
-						<div class="panel-body">
-							Body
-						</div>
-					</div>
+
+					{% assign pages = site.pages | sort: 'weight' reversed %}
+					{% for p in pages %}
+						{% if p.status == 'billing' %}
+
+						<a href="{{ p.url }}" class="card panel">
+							<div class="panel-heading">
+								<p class="text-center age-sex pull-right">
+									{% if p.gender == 'Male' %}
+										<i class="icon ion-male"></i>
+									{% else %}
+										<i class="icon ion-female"></i>
+									{% endif %}
+									<br><span class="age">{{ p.age }}</span></p>
+								<p class="name">{{ p.firstName }} <span class="lastname">{{ p.lastName }}</span></p>
+							</div>
+							<div class="panel-body">
+								<p>
+									{% if p.new == 'New' %}
+										<span class="label label-info">New</span>
+									{% endif %}
+									{% if p.booked == 'Walk-in' %}
+										<span class="label label-default">{{ p.booked }}</span>
+									{% else %}
+										<span class="label label-default">{{ p.hr }}{% if p.min != 0 %}:{{ p.min }} {% endif %}{{ p.day }} {{ p.booked }}</span>
+									{% endif %}
+									<span class="label label-default">{{ p.type }}</span>
+								</p>
+								<p>{{ p.doctor }} <span class="label {% if p.duration > 30 %} label-warning {% else %} label-default {% endif %} pull-right">{{ p.duration }}m</span></p>
+							</div>
+						</a>
+
+						{% endif %}
+					{% endfor %}
+
 				</div>
 
 				<div class="col-cards">
 					<h5 class="title text-center">Completed</h5>
 
-					<div class="card panel completed">
-						<div class="panel-heading">
-							<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">45</span></p>
-							<p class="name">Emmanuel <span class="lastname">Patterson</span></p>
-						</div>
-						<div class="panel-body">
-							<p>
-								<span class="label label-info">New</span>
-								<span class="label label-default">Booked for 12pm</span>
-								<span class="label label-default">Standard</span>
-							</p>
-							<p>Dr Ann Allsop <span class="label label-default pull-right">5m</span></p>
-						</div>
-					</div>
+					{% assign pages = site.pages | sort: 'weight' reversed %}
+					{% for p in pages %}
+						{% if p.status == 'completed' %}
+
+						<a href="{{ p.url }}" class="card panel completed">
+							<div class="panel-heading">
+								<p class="text-center age-sex pull-right">
+									{% if p.gender == 'Male' %}
+										<i class="icon ion-male"></i>
+									{% else %}
+										<i class="icon ion-female"></i>
+									{% endif %}
+									<br><span class="age">{{ p.age }}</span></p>
+								<p class="name">{{ p.firstName }} <span class="lastname">{{ p.lastName }}</span></p>
+							</div>
+							<div class="panel-body">
+								<p>
+									{% if p.new == 'New' %}
+										<span class="label label-info">New</span>
+									{% endif %}
+									{% if p.booked == 'Walk-in' %}
+										<span class="label label-default">{{ p.booked }}</span>
+								  {% else %}
+										<span class="label label-default">{{ p.hr }}{% if p.min != 0 %}:{{ p.min }} {% endif %}{{ p.day }} {{ p.booked }}</span>
+									{% endif %}
+									<span class="label label-default">{{ p.type }}</span>
+								</p>
+								<p>{{ p.doctor }} <span class="label {% if p.duration > 30 %} label-warning {% else %} label-default {% endif %} pull-right">{{ p.duration }}m</span></p>
+							</div>
+						</a>
+
+						{% endif %}
+					{% endfor %}
 
 				</div>
 
 				<div class="col-cards">
 					<h5 class="title text-center">Did not wait</h5>
 
-					<div class="card panel left">
-						<div class="panel-heading">
-							<p class="text-center age-sex pull-right"><i class="icon ion-male"></i><br><span class="age">45</span></p>
-							<p class="name">Emmanuel <span class="lastname">Patterson</span></p>
-						</div>
-						<div class="panel-body">
-							<p>
-								<span class="label label-info">New</span>
-								<span class="label label-default">Booked for 12pm</span>
-								<span class="label label-default">Standard</span>
-							</p>
-							<p>Dr Ann Allsop <span class="label label-default pull-right">5m</span></p>
-						</div>
-					</div>
+					{% assign pages = site.pages | sort: 'weight' reversed %}
+					{% for p in pages %}
+						{% if p.status == 'left' %}
+
+						<a href="{{ p.url }}" class="card panel left">
+							<div class="panel-heading">
+								<p class="text-center age-sex pull-right">
+									{% if p.gender == 'Male' %}
+										<i class="icon ion-male"></i>
+									{% else %}
+										<i class="icon ion-female"></i>
+									{% endif %}
+									<br><span class="age">{{ p.age }}</span></p>
+								<p class="name">{{ p.firstName }} <span class="lastname">{{ p.lastName }}</span></p>
+							</div>
+							<div class="panel-body">
+								<p>
+									{% if p.new == 'New' %}
+										<span class="label label-info">New</span>
+									{% endif %}
+									{% if p.booked == 'Walk-in' %}
+										<span class="label label-default">{{ p.booked }}</span>
+								  {% else %}
+										<span class="label label-default">{{ p.hr }}{% if p.min != 0 %}:{{ p.min }} {% endif %}{{ p.day }} {{ p.booked }}</span>
+									{% endif %}
+									<span class="label label-default">{{ p.type }}</span>
+								</p>
+								<p>{{ p.doctor }} <span class="label {% if p.duration > 30 %} label-warning {% else %} label-default {% endif %} pull-right">{{ p.duration }}m</span></p>
+							</div>
+						</a>
+
+						{% endif %}
+					{% endfor %}
 
 				</div>
 			</div>

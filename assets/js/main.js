@@ -16,6 +16,11 @@ $(window).scroll(function() {
     }
 });
 
+function update() {
+  $('.clock').html(moment().format('[today] ddd D MMM YY h:mm:ssa'));
+}
+
+
 $('.wrapper').on('click', function(){
   $('aside.sidenav').removeClass('open');
   $('body').removeClass('sidenav-open');
@@ -29,3 +34,5 @@ function aside() {
 
 $('.aside-trigger').click(aside);
 $('.button-close').click(aside);
+
+setInterval(update, 500);

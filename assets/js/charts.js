@@ -1,6 +1,6 @@
 // Data retrieved from http://vikjavev.no/ver/index.php?spenn=2d&sluttid=16.06.2015.
-$(function () {
-    Highcharts.chart('chart', {
+function drawChart(el) {
+    Highcharts.chart(el, {
         chart: {
             type: 'areaspline',
             backgroundColor: null
@@ -82,4 +82,8 @@ $(function () {
           enabled: false
         }
     });
-});
+};
+
+if ($('.chart').length>0) {
+  drawChart('chart');
+};

@@ -338,6 +338,17 @@ header {
 			background-color: transparent;
 			padding: 0;
 			margin-left: 20px;
+			li {
+				&.active {
+					color: $text-color-dark;
+					a {
+						color: $text-color-dark;
+					}
+				}
+				a {
+					color: white;
+				}
+			}
 		}
 	}
 	&:after {
@@ -404,7 +415,7 @@ header {
 
 .cards {
 	// margin-top: -80px;
-	padding: 0;
+	padding: 0 0 30px;
 	.col-cards {
 		width: 236px;
 		margin: 0 10px 10px;
@@ -418,13 +429,19 @@ header {
 }
 .card {
 	position: relative;
+	display: block;
+	color: $text-color;
+	&:hover {
+		color: $text-color;
+		text-decoration: none;
+	}
 	&.left {
 		&:before {
 			content: '\f405';
 			font-family: 'Ionicons';
 			text-align: center;
 			font-size: 4rem;
-			line-height: 120px;
+			line-height: 105px;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -440,7 +457,7 @@ header {
 			font-family: 'Ionicons';
 			text-align: center;
 			font-size: 4rem;
-			line-height: 120px;
+			line-height: 105px;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -468,17 +485,35 @@ header {
 			background-color: transparent;
 			border: 5px solid transparent;
 		}
-		&:hover {
+		&:hover, &.active {
 			z-index: 100;
 			&:after {
 				z-index: 1;
 				border-color: rgba(black,.2);
 			}
 		}
+		&.active {
+			background-color: #ddd;
+			&:before {
+				content: '';
+				position: absolute;
+				width: 0;
+				height: 0;
+				right: -8px;
+				border-style: solid;
+				border-width: 7.5px 0 7.5px 8px;
+				border-color: transparent transparent transparent #dddddd;
+				z-index: 3;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
 		.panel-heading {
 			padding-bottom: 0;
 			.age-sex {
 				color: rgba($text-color,.8);
+				line-height: 1.2;
+				text-align: center;
 			}
 			p {
 				margin: 0;
@@ -504,4 +539,11 @@ header {
 			}
 		}
 	}
+}
+.patient-card {
+	display: inline-block;
+  width: calc(100% - 260px);
+	background-color: $color-gray-light;
+	border-radius: 5px;
+	min-height: 500px;
 }
