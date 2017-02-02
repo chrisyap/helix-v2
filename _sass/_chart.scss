@@ -1,0 +1,52 @@
+
+.chart {
+  height: 450px;
+  position: relative;
+  overflow: hidden;
+  #chart {
+    position: absolute;
+    top: 0;
+    left: -30px;
+    right: -30px;
+    bottom: 0;
+    > * {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  .chart-data {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    .container {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      * {
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 1.2;
+      }
+      .mins {
+        font-size: 8rem;
+        font-weight: 300;
+      }
+      .result {
+        font-weight: 400;
+      }
+    }
+  }
+  .chart-range {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    .nav {
+      list-style: none;
+      > li {
+        display: inline-block;
+      }
+    }
+  }
+}

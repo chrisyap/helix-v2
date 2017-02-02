@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Adria Buckley
 
 firstName: Adria
 lastName: Buckley
@@ -17,4 +18,27 @@ status: nursing
 weight: 1
 ---
 
-<h1>{{ page.firstName }}</h1>
+<div class="notification">
+  <div class="container-fluid">
+    <span class="label label-success">OPV successful</span>
+    <span class="label label-danger">Dept outstanding <i class="icon ion-ios-close-outline"></i></span>
+    <span class="label label-default">X-rays ready for pickup <i class="icon ion-ios-close-outline"></i></span>
+    &nbsp; <i class="icon ion-ios-plus-outline"></i>
+    <a class="pull-right"><small>Edit patient details</small></a>
+  </div>
+</div>
+<div class="patient-info">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-6">
+        <h1>{{ page.firstName }} {{ page.lastName }}</h1>
+      </div>
+      <div class="col-xs-3">
+        Address line 1<br>
+        Address line 2<br>
+        Suburb State Postcode
+      </div>
+      <div class="col-xs-3"></div>
+    </div>
+  </div>
+</div>

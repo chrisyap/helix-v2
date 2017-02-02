@@ -1,0 +1,42 @@
+.btn {
+	@include font-oswald(300);
+	font-size: 1.05rem;
+	&.btn-default {
+		background-color: transparent;
+		border-color: rgba($text-color-dark, .8);
+		color: $text-color-dark;
+		&:focus {
+			background-color: #fff;
+			color: $color-lighten;
+		}
+    &.active {
+      box-shadow: inset 0 3px 0 rgba(black,.1);
+      background-color: rgba(black,.5);
+      color: $color-gray;
+    }
+	}
+	&.btn-default-reverse {
+		background-color: transparent;
+		border-color: rgba(white, .8);
+		color: white;
+		&:focus {
+			background-color: #fff;
+			color: $color-lighten;
+		}
+	}
+	&.btn-link-reverse {
+		color: white;
+		border: none;
+		&.active, &:hover {
+			background-color: rgba(#fff,.2);
+			box-shadow: none;
+			border: none;
+		}
+	}
+	&.btn-sm, .btn-group-sm > .btn {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+	}
+}

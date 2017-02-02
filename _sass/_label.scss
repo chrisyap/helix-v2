@@ -1,0 +1,36 @@
+.label {
+	@include font-roboto(300);
+	padding: .25em .5em .2em;
+	&.label-info {
+		background-color: $color-lighten;
+		color: $text-color;
+	}
+	&.label-default {
+		background-color: rgba($color-gray,.6);
+		// border: 1px solid rgba($text-color, .4);
+		color: $text-color;
+	}
+	&.label-warning {
+		background-color: $color-orange;
+		color: #fff;
+	}
+  &.label-success {
+    color: $color-green;
+    background-color: rgba($color-green,.1);
+  }
+  &.label-danger {
+    color: $color-red;
+    background-color: rgba($color-red,.1);
+  }
+}
+
+.notification {
+  .label {
+    @include font-oswald(400);
+    font-size: .9rem;
+    padding: 2px 8px;
+    .icon {
+      margin-left: 3px;
+    }
+  }
+}

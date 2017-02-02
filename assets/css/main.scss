@@ -12,6 +12,7 @@ $color-gray-light:	#E3E3E3;
 $color-gray:				#c9c9c9;
 $color-red:					#BB0219;
 $color-orange:			#E38D00;
+$color-green:				#417505;
 
 $text-color:				#4a4a4a;
 $text-color-dark:		#191919;
@@ -50,72 +51,21 @@ body {
 	}
 }
 
+a {
+	color: darken($color-primary,20%);
+}
+
 h1, h2, h3, h4, h5, h6 {
 	@include font-oswald(400);
 	text-transform: uppercase;
-}
-
-.btn {
-	@include font-oswald(300);
-	font-size: 1.05rem;
-	&.btn-default {
-		background-color: transparent;
-		border-color: rgba($text-color-dark, .8);
-		color: $text-color-dark;
-		&:focus {
-			background-color: #fff;
-			color: $color-lighten;
-		}
-	}
-	&.btn-default-reverse {
-		background-color: transparent;
-		border-color: rgba(white, .8);
-		color: white;
-		&:focus {
-			background-color: #fff;
-			color: $color-lighten;
-		}
-	}
-	&.btn-link-reverse {
-		color: white;
-		border: none;
-		&.active, &:hover {
-			background-color: rgba(#fff,.2);
-			box-shadow: none;
-			border: none;
-		}
-	}
-	&.btn-sm, .btn-group-sm > .btn {
-    padding: 5px 10px;
-    font-size: 12px;
-    line-height: 1.5;
-    border-radius: 3px;
-	}
 }
 
 .pointer {
 	cursor: pointer;
 }
 
-.label {
-	@include font-roboto(300);
-	padding: .25em .5em .2em;
-	&.label-info {
-		background-color: $color-lighten;
-		color: $text-color;
-	}
-	&.label-default {
-		background-color: rgba($color-gray,.6);
-		// border: 1px solid rgba($text-color, .4);
-		color: $text-color;
-	}
-	&.label-warning {
-		background-color: $color-orange;
-		color: #fff;
-	}
-}
-
 .container {
+	min-width: 970px;
 	@media (max-width: 1299px) and (min-width: 1040px) {
 		width: 1040px;
 	}
@@ -171,111 +121,6 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
-.navbar {
-	&.navbar-default {
-		background-color: $color-primary;
-		color: white;
-		border-bottom: none;
-		.navbar-brand {
-			color: $text-color-dark;
-		}
-		.nav {
-			> li {
-				&.active {
-					> a {
-						background-color: transparent;
-						border-top-color: $text-color-dark;
-					}
-				}
-				> a {
-					border-top: 3px solid transparent;
-					color: $text-color-dark;
-				}
-			}
-		}
-		.navbar-form {
-			input[type=search] {
-				background-color: rgba(0,0,0,.1);
-				box-shadow: none;
-				color: white;
-			}
-		}
-	}
-	.navbar-header {
-		.navbar-brand {
-			@include font-oswald(300);
-			font-size: .95rem;
-			line-height: 1.2;
-			padding: 11px 15px;
-			text-transform: uppercase;
-			float: none;
-			display: inline-block;
-		}
-		#helix-logo {
-			width: 30px;
-			height: 30px;
-			border-radius: 5px;
-			background-color: rgba(white,.3);
-			display: inline-block;
-		}
-	}
-	.navbar-form {
-		margin: 0;
-		padding: 10px 15px;
-		width: calc(100% - 360px);
-		.form-group {
-			display: block;
-			position: relative;
-			&:before {
-				content: '\f4a4';
-				font-family: "Ionicons";
-				position: absolute;
-				left: 20px;
-				top: 0;
-				line-height: 40px;
-				color: rgba(white,.5);
-			}
-			input[type=search] {
-				width: 100%;
-				border: none;
-				height: 40px;
-				border-radius: 20px;
-				padding: 10px 30px;
-			}
-		}
-	}
-	.nav {
-		&.navbar-right {
-			margin-right: -5px;
-		}
-		> li {
-			> a {
-				padding-left: 10px;
-				padding-right: 10px;
-				@include font-roboto(300);
-				i {
-					font-size: 1.8rem;
-					&.notify {
-						position: relative;
-						&:after {
-							content: '';
-							position: absolute;
-							right: -3px;
-							top: 3px;
-							width: 12px;
-							height: 12px;
-							border-radius: 50%;
-							background-color: $color-red;
-						}
-					}
-				}
-			}
-		}
-	}
-	min-height: 60px;
-	min-width: $min-width;
-}
-
 aside {
 	&.sidenav {
 		position: fixed;
@@ -314,7 +159,7 @@ aside {
 
 header {
 	background-color: $color-lighten;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	position: relative;
 	color: $text-color-dark;
 	.title {
@@ -337,7 +182,6 @@ header {
 			display: inline;
 			background-color: transparent;
 			padding: 0;
-			margin-left: 20px;
 			li {
 				&.active {
 					color: $text-color-dark;
@@ -346,76 +190,35 @@ header {
 					}
 				}
 				a {
-					color: white;
+					color: rgba(black,.3);
+					&:hover {
+						color: $text-color-dark;
+						text-decoration: none;
+					}
 				}
 			}
 		}
 	}
 	&:after {
-		// content: '';
+		//content: '';
 		position: absolute;
 		top: 100%;
 		width: 100%;
-		height: 200px;
+		height: 100px;
 		background-color: $color-lighten;
 		z-index: -999;
 	}
-	.chart {
-		height: 450px;
-		position: relative;
-		overflow: hidden;
-		#chart {
-			position: absolute;
-			top: 0;
-			left: -30px;
-			right: -30px;
-			bottom: 0;
-			> * {
-				top: 50%;
-				transform: translateY(-50%);
-			}
-		}
-		.chart-data {
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			.container {
-				position: relative;
-				top: 50%;
-				transform: translateY(-50%);
-				* {
-					margin-top: 0;
-					margin-bottom: 0;
-					line-height: 1.2;
-				}
-				.mins {
-					font-size: 8rem;
-					font-weight: 300;
-				}
-				.result {
-					font-weight: 400;
-				}
-			}
-		}
-		.chart-range {
-			position: absolute;
-			bottom: 30px;
-			width: 100%;
-			.nav {
-				list-style: none;
-				> li {
-					display: inline-block;
-				}
-			}
+	.filters {
+		padding: 8px 0;
+		> div > .icon {
+			margin-right: 20px;
 		}
 	}
 }
 
 .cards {
 	// margin-top: -80px;
-	padding: 0 0 30px;
+	padding: 0 0 100px;
 	.col-cards {
 		width: 236px;
 		margin: 0 10px 10px;
@@ -435,36 +238,31 @@ header {
 		color: $text-color;
 		text-decoration: none;
 	}
-	&.left {
+	&.left, &.completed {
+		* {
+			opacity: .5;
+		}
 		&:before {
-			content: '\f405';
 			font-family: 'Ionicons';
 			text-align: center;
 			font-size: 4rem;
 			line-height: 105px;
 			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			color: $color-red;
-			background-color: rgba($color-gray-light, .9);
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
 		}
 	}
 	&.completed {
 		&:before {
 			content: '\f3fe';
-			font-family: 'Ionicons';
-			text-align: center;
-			font-size: 4rem;
-			line-height: 105px;
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
 			color: $color-primary;
-			background-color: rgba($color-gray-light, .9);
+		}
+	}
+	&.left {
+		&:before {
+			content: '\f405';
+			color: $color-red;
 		}
 	}
 	&.panel {
@@ -485,7 +283,7 @@ header {
 			background-color: transparent;
 			border: 5px solid transparent;
 		}
-		&:hover, &.active {
+		&:hover {
 			z-index: 100;
 			&:after {
 				z-index: 1;
@@ -499,10 +297,10 @@ header {
 				position: absolute;
 				width: 0;
 				height: 0;
-				right: -8px;
+				right: -9px;
 				border-style: solid;
 				border-width: 7.5px 0 7.5px 8px;
-				border-color: transparent transparent transparent #dddddd;
+				border-color: transparent transparent transparent lighten(black,60%);
 				z-index: 3;
 				top: 50%;
 				transform: translateY(-50%);
@@ -542,8 +340,44 @@ header {
 }
 .patient-card {
 	display: inline-block;
-  width: calc(100% - 260px);
+  width: calc(100% - 270px);
 	background-color: $color-gray-light;
-	border-radius: 5px;
+	border-radius: 3px;
 	min-height: 500px;
+	margin-right: 10px;
+	.notification {
+		background-color: rgba(black,.05);
+		padding: 13px 0 10px;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+	@media (min-width: 1299px) {
+		width: 1000px;
+	}
 }
+
+.clock {
+	position: fixed;
+	left: 20px;
+	bottom: 20px;
+	@include font-oswald(300);
+	background-color: rgba(black,.8);
+	text-transform: uppercase;
+	padding: 12px 20px 15px;
+	border-radius: 3px;
+	color: $color-gray;
+	text-align: center;
+	line-height: 1.2;
+	.date {
+		font-size: 1rem;
+	}
+	.time {
+		font-size: 2rem;
+	}
+}
+
+@import
+	"nav",
+	"buttons",
+	"chart",
+	"label";

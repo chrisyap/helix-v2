@@ -15,10 +15,17 @@
 						<div class="row">
 							<div class="col-xs-6">
 								<h3 class="page-title">
-									<span class="clock"></span>
 									<ul class="breadcrumb">
 										<li class=""><a href="../front-office-dashboard.html">Dashboard</a></li>
-										<li class="active">Waiting for doctor</li>
+										<li class="active">
+											{% if page.status == 'waiting' %} Waiting for doctor
+											{% elsif page.status == 'consult' %} In consultation
+											{% elsif page.status == 'nursing' %} Nursing
+											{% elsif page.status == 'others' %} Others
+											{% elsif page.status == 'billing' %} Billing
+											{% elsif page.status == 'completed' %} Completed
+											{% elsif page.status == 'left' %} Did not wait {% endif %}
+										</li>
 									</ul>
 								</h3>
 							</div>
@@ -47,9 +54,41 @@
 						</div>
 					</div>
 				</div>
+				<div class="filters">
+					<div class="container-fluid">
+						<i class="icon ion-funnel"></i>
+						<!-- <button class="btn btn-default active all">Show all</button> -->
+						<div class="btn-group" data-toggle="buttons">
+
+								<label class="btn btn-default all active">
+									<input type="radio" name="options" id="option1" autocomplete="off" checked> Show all
+								</label>
+
+								<!-- Create empty arrays -->
+								{% assign types = '' | split: ',' %}
+
+								<!-- Push to tags -->
+								{% assign pages = site.pages %}
+								{% for p in pages %}
+									{% if p.status == page.status %}
+										{% assign types = types | push: p.type %}
+									{% endif %}
+								{% endfor %}
+
+								{% assign visit_types = types | sort: t | uniq %}
+								{% for t in visit_types %}
+									<label class="btn btn-default {{ t | downcase | replace: ' ','-' }}">
+								    <input type="radio" name="options" id="option1" autocomplete="off" checked> {{ t }}
+								  </label>
+								{% endfor%}
+
+						</div>
+
+					</div>
+				</div>
 			</header>
 
-			<div class="container">
+			<div class="container text-center">
 				<div class="cards">
 
 					<div class="col-cards">
@@ -58,7 +97,7 @@
 						{% for p in pages %}
 							{% if p.status == page.status %}
 
-							<a href="{{ p.url }}" class="card panel {% if p.url == page.url %} active {% endif %}">
+							<a href="{{ p.url }}" class="card panel {{ p.type | downcase | replace: " ","-" }} {% if p.url == page.url %} active {% endif %}">
 								<div class="panel-heading">
 									<p class="text-center age-sex pull-right">
 										{% if p.gender == 'Male' %}
@@ -89,7 +128,7 @@
 						{% endfor %}
 					</div>
 
-					<div class="patient-card">
+					<div class="patient-card text-left">
 
 						{{ content }}
 
