@@ -9,6 +9,7 @@
 		}
 		.nav {
 			> li {
+				float: left;
 				&.active {
 					> a {
 						background-color: transparent;
@@ -30,6 +31,7 @@
 		}
 	}
 	.navbar-header {
+		float: left;
 		.navbar-brand {
 			@include font-oswald(300);
 			font-size: .95rem;
