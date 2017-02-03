@@ -58,3 +58,24 @@ $('.filters').on('click','.btn',function(){
     showOnlyCard(vtype);
   }
 })
+
+
+function randRange(data) {
+       var newTime = data[Math.floor(data.length * Math.random())];
+       return newTime;
+}
+
+function toggleSomething() {
+       var timeArray = new Array(2000, 3000, 1500, 2500, 20000, 30000, 10000, 15000);
+
+       // do stuff, happens to use jQuery here (nothing else does)
+       $(".notified").addClass("visible");
+       setTimeout(function(){
+         $(".notified").removeClass("visible");
+         clearInterval(timer);
+         timer = setInterval(toggleSomething, randRange(timeArray));
+       },3000);
+}
+
+var timer = setInterval(toggleSomething, 1000);
+// 1000 = Initial timer when the page is first loaded

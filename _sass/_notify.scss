@@ -1,0 +1,16 @@
+.notified {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  padding: 15px 20px;
+  background-color: rgba(black,.8);
+  color: $color-gray-light;
+  z-index: 9999;
+  box-shadow: 0 4px 0 rgba(black,.1);
+  @include transition;
+  transform: translateX(110%);
+  &.visible {
+    transform: translateX(0);
+  }
+}
