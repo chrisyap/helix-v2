@@ -1,5 +1,6 @@
 
 .navbar {
+	height: 50px;
 	&.navbar-default {
 		background-color: $color-primary;
 		color: white;
@@ -32,6 +33,7 @@
 	}
 	.navbar-header {
 		float: left;
+		margin-right: 0;
 		.navbar-brand {
 			@include font-oswald(300);
 			font-size: .95rem;
@@ -51,7 +53,10 @@
 	}
 	.navbar-form {
 		margin: 0;
+		float: left;
 		padding: 10px 15px;
+		border-top: 0;
+		border-bottom: 0;
 		width: calc(100% - 360px);
 		.form-group {
 			display: block;
