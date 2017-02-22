@@ -120,7 +120,7 @@ title: Dashboard
 					{% for p in pages %}
 						{% if p.status == 'consult' %}
 
-						<a href="{{ p.url }}" class="card panel">
+						<a href="{{ site.url }}{{ site.baseurl }}{{ p.url }}" class="card panel">
 							<div class="panel-heading">
 								<p class="text-center age-sex pull-right">
 									{% if p.gender == 'Male' %}
@@ -159,7 +159,7 @@ title: Dashboard
 					{% for p in pages %}
 						{% if p.status == 'nursing' %}
 
-						<a href="{{ p.url }}" class="card panel">
+						<a href="{{ site.url }}{{ site.baseurl }}{{ p.url }}" class="card panel">
 							<div class="panel-heading">
 								<p class="text-center age-sex pull-right">
 									{% if p.gender == 'Male' %}
@@ -198,7 +198,7 @@ title: Dashboard
 					{% for p in pages %}
 						{% if p.status == 'others' %}
 
-						<a href="{{ p.url }}" class="card panel">
+						<a href="{{ site.url }}{{ site.baseurl }}{{ p.url }}" class="card panel">
 							<div class="panel-heading">
 								<p class="text-center age-sex pull-right">
 									{% if p.gender == 'Male' %}
@@ -237,7 +237,7 @@ title: Dashboard
 					{% for p in pages %}
 						{% if p.status == 'billing' %}
 
-						<a href="{{ p.url }}" class="card panel">
+						<a href="{{ site.url }}{{ site.baseurl }}{{ p.url }}" class="card panel">
 							<div class="panel-heading">
 								<p class="text-center age-sex pull-right">
 									{% if p.gender == 'Male' %}
@@ -276,7 +276,7 @@ title: Dashboard
 					{% for p in pages %}
 						{% if p.status == 'completed' %}
 
-						<a href="{{ p.url }}" class="card panel completed">
+						<a href="{{ site.url }}{{ site.baseurl }}{{ p.url }}" class="card panel completed">
 							<div class="panel-heading">
 								<p class="text-center age-sex pull-right">
 									{% if p.gender == 'Male' %}
@@ -315,7 +315,7 @@ title: Dashboard
 					{% for p in pages %}
 						{% if p.status == 'left' %}
 
-						<a href="{{ p.url }}" class="card panel left">
+						<a href="{{ site.url }}{{ site.baseurl }}{{ p.url }}" class="card panel left">
 							<div class="panel-heading">
 								<p class="text-center age-sex pull-right">
 									{% if p.gender == 'Male' %}
